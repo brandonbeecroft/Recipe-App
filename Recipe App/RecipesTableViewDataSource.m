@@ -7,6 +7,7 @@
 //
 
 #import "RecipesTableViewDataSource.h"
+#import "RARecipesDetailView.h"
 #import "RARecipes.h"
 
 
@@ -32,6 +33,5 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"Favorite Recipes";
 }
-
 
 @end

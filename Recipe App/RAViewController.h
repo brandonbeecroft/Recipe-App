@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RAViewController : UIViewController
-
+@interface RAViewController : UIViewController 
 @end

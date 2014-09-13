@@ -22,6 +22,7 @@
 		E856502819C2822000E3A438 /* RAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E856502719C2822000E3A438 /* RAViewController.m */; };
 		E856502B19C2848900E3A438 /* RARecipes.m in Sources */ = {isa = PBXBuildFile; fileRef = E856502A19C2848900E3A438 /* RARecipes.m */; };
 		E856503119C28BE400E3A438 /* RecipesTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E856503019C28BE400E3A438 /* RecipesTableViewDataSource.m */; };
+		E856515B19C4B05100E3A438 /* RARecipesDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = E856515A19C4B05100E3A438 /* RARecipesDetailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		E856502A19C2848900E3A438 /* RARecipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARecipes.m; sourceTree = "<group>"; };
 		E856502F19C28BE400E3A438 /* RecipesTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewDataSource.h; sourceTree = "<group>"; };
 		E856503019C28BE400E3A438 /* RecipesTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewDataSource.m; sourceTree = "<group>"; };
+		E856515919C4B05100E3A438 /* RARecipesDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARecipesDetailView.h; sourceTree = "<group>"; };
+		E856515A19C4B05100E3A438 /* RARecipesDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARecipesDetailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				71F67B60192C8D6A00E609F1 /* RAAppDelegate.m */,
 				E856502619C2822000E3A438 /* RAViewController.h */,
 				E856502719C2822000E3A438 /* RAViewController.m */,
+				E856515919C4B05100E3A438 /* RARecipesDetailView.h */,
+				E856515A19C4B05100E3A438 /* RARecipesDetailView.m */,
 				E856502F19C28BE400E3A438 /* RecipesTableViewDataSource.h */,
 				E856503019C28BE400E3A438 /* RecipesTableViewDataSource.m */,
 				E856503219C2992C00E3A438 /* Classes */,
@@ -263,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E856515B19C4B05100E3A438 /* RARecipesDetailView.m in Sources */,
 				E856502B19C2848900E3A438 /* RARecipes.m in Sources */,
 				71F67B5D192C8D6A00E609F1 /* main.m in Sources */,
 				E856503119C28BE400E3A438 /* RecipesTableViewDataSource.m in Sources */,

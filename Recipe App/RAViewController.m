@@ -8,9 +8,11 @@
 
 #import "RAViewController.h"
 #import "RecipesTableViewDataSource.h"
+#import "RARecipesDetailView.h"
 #import "RARecipes.h"
 
-@interface RAViewController ()
+@interface RAViewController () <UITableViewDelegate>
+
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) RecipesTableViewDataSource *dataSource;
@@ -23,11 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.title = @"Recipes";
-
+    self.title = @"Favorite Recipes";
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.tableView];
-//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    self.tableView.delegate = self;
     self.dataSource = [RecipesTableViewDataSource new];
     [self.dataSource registerTableView:self.tableView];
     self.tableView.dataSource = self.dataSource;
@@ -36,6 +37,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    RARecipesDetailView *recipeDetailView = [RARecipesDetailView new];
+    recipeDetailView.recipeTitle = [RARecipes titleAtIndex: indexPath.row];
+    recipeDetailView.indexOfRecipe = indexPath.row;
+    
+    [self.navigationController pushViewController:recipeDetailView animated:YES];
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+     
 }
 
 
