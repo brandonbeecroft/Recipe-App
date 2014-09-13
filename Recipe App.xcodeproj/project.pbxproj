@@ -120,12 +120,11 @@
 				71F67B60192C8D6A00E609F1 /* RAAppDelegate.m */,
 				E856502619C2822000E3A438 /* RAViewController.h */,
 				E856502719C2822000E3A438 /* RAViewController.m */,
-				E856502919C2848900E3A438 /* RARecipes.h */,
-				E856502A19C2848900E3A438 /* RARecipes.m */,
-				71F67B62192C8D6A00E609F1 /* Images.xcassets */,
-				71F67B57192C8D6A00E609F1 /* Supporting Files */,
 				E856502F19C28BE400E3A438 /* RecipesTableViewDataSource.h */,
 				E856503019C28BE400E3A438 /* RecipesTableViewDataSource.m */,
+				E856503219C2992C00E3A438 /* Classes */,
+				71F67B62192C8D6A00E609F1 /* Images.xcassets */,
+				71F67B57192C8D6A00E609F1 /* Supporting Files */,
 			);
 			path = "Recipe App";
 			sourceTree = "<group>";
@@ -157,6 +156,15 @@
 				71F67B72192C8D6A00E609F1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E856503219C2992C00E3A438 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E856502919C2848900E3A438 /* RARecipes.h */,
+				E856502A19C2848900E3A438 /* RARecipes.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
