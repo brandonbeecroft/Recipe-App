@@ -24,10 +24,6 @@
 
     // create a scrollview
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height)];
-    // TODO find out the height of all elements and create the appropriate size of the scrollview
-    [scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 2000)];
-    [self.view addSubview:scrollView];
-
 
     UILabel *recipeDescription = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width-10, CGFLOAT_MAX)];
     recipeDescription.text = [RARecipes descriptionAtIndex:self.indexOfRecipe];
@@ -96,6 +92,11 @@
 
     [ingredientsView sizeToFit];
     [scrollView addSubview:ingredientsView];
+
+    // TODO find out the height of all elements and create the appropriate size of the scrollview
+    [scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 2000)];
+    [self.view addSubview:scrollView];
+
 }
 
 - (void)didReceiveMemoryWarning {

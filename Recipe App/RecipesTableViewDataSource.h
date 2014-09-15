@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h> 
 
-@interface RecipesTableViewDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface RecipesTableViewDataSource : NSObject <UITableViewDataSource>
 
 -(void)registerTableView:(UITableView *)tableView;
 
