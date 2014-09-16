@@ -14,6 +14,7 @@ static NSString * const RecipeIngredientsKey = @"recipeIngredients";
 static NSString * const IngredientVolumeKey = @"ingredientVolume";
 static NSString * const IngredientTypeKey = @"ingredientType";
 static NSString * const DirectionsKey = @"directions";
+static NSString * const RecipeImageKey = @"recipeImage";
 
 @implementation RARecipes
 
@@ -49,11 +50,16 @@ static NSString * const DirectionsKey = @"directions";
     return [self recipes][index][DirectionsKey];
 }
 
++ (NSString *)imageAtIndex:(NSInteger)index {
+    return [self recipes][index][RecipeImageKey];
+}
+
 + (NSArray *)recipes {
 
     return @[
              @{
                  RecipeTitleKey : @"Lynn's Best Herb-and-Garlic Pork",
+                 RecipeImageKey : @"pork.jpg",
                  RecipeDescriptionKey : @"Garlic, chili powder, and lots of fresh herbs make a wonderful marinade for the pork in this grilling recipe.",
                  RecipeIngredientsKey : @[
                          @{IngredientTypeKey: @"olive oil", IngredientVolumeKey: @"1/4 cup"},
@@ -73,6 +79,7 @@ static NSString * const DirectionsKey = @"directions";
                  },
              @{
                  RecipeTitleKey : @"Glorious Glazed Salmon",
+                 RecipeImageKey : @"salmon.jpg",
                  RecipeDescriptionKey : @"As the salmon grills, the tamari sauce and balsamic vinegar glaze caramelizes on the fish, adding color and flavor to the final dish.",
                  RecipeIngredientsKey : @[
                          @{IngredientTypeKey: @"balsamic vinegar", IngredientVolumeKey: @"1/2 cup"},
@@ -88,6 +95,7 @@ static NSString * const DirectionsKey = @"directions";
                  },
              @{
                  RecipeTitleKey : @"Paradise Pumpkin Pie",
+                 RecipeImageKey : @"pie.jpg",
                  RecipeDescriptionKey : @"This extravagant two-layered dessert has a cream cheese base topped with a pumpkin filling and sweet pecans.",
                  RecipeIngredientsKey : @[
                          @{IngredientTypeKey: @"cream cheese", IngredientVolumeKey: @"8 ounce"},
@@ -110,6 +118,7 @@ static NSString * const DirectionsKey = @"directions";
                  },
              @{
                  RecipeTitleKey : @"Chicken & chorizo jambalaya",
+                 RecipeImageKey : @"chicken.jpg",
                  RecipeDescriptionKey : @"A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet peppers and tomatoes",
                  RecipeIngredientsKey : @[
                          @{IngredientTypeKey: @"olive oil", IngredientVolumeKey: @"1 tbs"},
@@ -123,6 +132,7 @@ static NSString * const DirectionsKey = @"directions";
                  },
              @{
                  RecipeTitleKey : @"Ultimate chocolate cake",
+                 RecipeImageKey : @"cake.jpeg",
                  RecipeDescriptionKey : @"Indulge yourself with Angela Nilsen's heavenly moist and fudgy chocolate cake - perfect for celebrations - birthdays, weddings, christenings - any excuse!",
                  RecipeIngredientsKey : @[
                          @{IngredientTypeKey: @"dark chocolate", IngredientVolumeKey: @"200 g"},

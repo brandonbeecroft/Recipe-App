@@ -19,6 +19,11 @@
 		71F67B6C192C8D6A00E609F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F67B54192C8D6A00E609F1 /* UIKit.framework */; };
 		71F67B74192C8D6A00E609F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71F67B72192C8D6A00E609F1 /* InfoPlist.strings */; };
 		71F67B76192C8D6A00E609F1 /* Recipe_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F67B75192C8D6A00E609F1 /* Recipe_AppTests.m */; };
+		E80F4E2B19C7E308003529CA /* cake.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E80F4E2619C7E308003529CA /* cake.jpeg */; };
+		E80F4E2C19C7E308003529CA /* chicken.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E80F4E2719C7E308003529CA /* chicken.jpg */; };
+		E80F4E2D19C7E308003529CA /* pie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E80F4E2819C7E308003529CA /* pie.jpg */; };
+		E80F4E2E19C7E308003529CA /* pork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E80F4E2919C7E308003529CA /* pork.jpg */; };
+		E80F4E2F19C7E308003529CA /* salmon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E80F4E2A19C7E308003529CA /* salmon.jpg */; };
 		E856502819C2822000E3A438 /* RAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E856502719C2822000E3A438 /* RAViewController.m */; };
 		E856502B19C2848900E3A438 /* RARecipes.m in Sources */ = {isa = PBXBuildFile; fileRef = E856502A19C2848900E3A438 /* RARecipes.m */; };
 		E856503119C28BE400E3A438 /* RecipesTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E856503019C28BE400E3A438 /* RecipesTableViewDataSource.m */; };
@@ -52,6 +57,11 @@
 		71F67B71192C8D6A00E609F1 /* Recipe AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Recipe AppTests-Info.plist"; sourceTree = "<group>"; };
 		71F67B73192C8D6A00E609F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		71F67B75192C8D6A00E609F1 /* Recipe_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Recipe_AppTests.m; sourceTree = "<group>"; };
+		E80F4E2619C7E308003529CA /* cake.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cake.jpeg; sourceTree = "<group>"; };
+		E80F4E2719C7E308003529CA /* chicken.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicken.jpg; sourceTree = "<group>"; };
+		E80F4E2819C7E308003529CA /* pie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pie.jpg; sourceTree = "<group>"; };
+		E80F4E2919C7E308003529CA /* pork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pork.jpg; sourceTree = "<group>"; };
+		E80F4E2A19C7E308003529CA /* salmon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = salmon.jpg; sourceTree = "<group>"; };
 		E856502619C2822000E3A438 /* RAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAViewController.h; sourceTree = "<group>"; };
 		E856502719C2822000E3A438 /* RAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAViewController.m; sourceTree = "<group>"; };
 		E856502919C2848900E3A438 /* RARecipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARecipes.h; sourceTree = "<group>"; };
@@ -119,6 +129,7 @@
 		71F67B56192C8D6A00E609F1 /* Recipe App */ = {
 			isa = PBXGroup;
 			children = (
+				E80F4E2519C7E2C8003529CA /* images */,
 				71F67B5F192C8D6A00E609F1 /* RAAppDelegate.h */,
 				71F67B60192C8D6A00E609F1 /* RAAppDelegate.m */,
 				E856502619C2822000E3A438 /* RAViewController.h */,
@@ -161,6 +172,18 @@
 				71F67B72192C8D6A00E609F1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E80F4E2519C7E2C8003529CA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E80F4E2619C7E308003529CA /* cake.jpeg */,
+				E80F4E2719C7E308003529CA /* chicken.jpg */,
+				E80F4E2819C7E308003529CA /* pie.jpg */,
+				E80F4E2919C7E308003529CA /* pork.jpg */,
+				E80F4E2A19C7E308003529CA /* salmon.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		E856503219C2992C00E3A438 /* Classes */ = {
@@ -249,7 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				71F67B5B192C8D6A00E609F1 /* InfoPlist.strings in Resources */,
+				E80F4E2E19C7E308003529CA /* pork.jpg in Resources */,
+				E80F4E2B19C7E308003529CA /* cake.jpeg in Resources */,
+				E80F4E2D19C7E308003529CA /* pie.jpg in Resources */,
 				71F67B63192C8D6A00E609F1 /* Images.xcassets in Resources */,
+				E80F4E2F19C7E308003529CA /* salmon.jpg in Resources */,
+				E80F4E2C19C7E308003529CA /* chicken.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,24 +30,36 @@
 
     // get the width of the screen
     CGFloat screenWidth = CGRectGetWidth(self.view.bounds);
-    CGFloat startingYPosition = 0;
+    CGFloat startingYPosition = 10;
     CGFloat startingXPosition = 10;
     CGFloat calculatedYPosition = 0;
     CGFloat elementHeight = 100;
     CGFloat labelHeight = 0;
 
     // create a scrollview
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 10, screenWidth, self.view.frame.size.height)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, self.view.frame.size.height)];
+
+    // method needed to call image
+    
+    UIImageView *foodImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 140)];
+    foodImage.image = [UIImage imageNamed:[RARecipes imageAtIndex:self.indexOfRecipe]];
+
+    [scrollView addSubview:foodImage];
+    //NSLog(@"Image name: %@",[RARecipes imageAtIndex:self.indexOfRecipe] );
+
+    startingYPosition += 140;
 
     // recipe description
     UILabel *recipeDescription = [[UILabel alloc] initWithFrame:CGRectMake(startingXPosition, startingYPosition, screenWidth-10, elementHeight)];
     recipeDescription.text = [RARecipes descriptionAtIndex:self.indexOfRecipe];
     recipeDescription.lineBreakMode = NSLineBreakByWordWrapping;
     recipeDescription.numberOfLines = 0;
+    recipeDescription.font = [UIFont systemFontOfSize:14];
+    recipeDescription.textColor = [UIColor lightGrayColor];
     [recipeDescription sizeToFit];
 
     labelHeight = CGRectGetHeight(recipeDescription.bounds);
-    calculatedYPosition = labelHeight+10;
+    calculatedYPosition = startingYPosition + labelHeight+10;
 
     // create a UIView to attach the ingredients to
     UIView *ingredientsView = [[UIView alloc] initWithFrame:CGRectMake(0, calculatedYPosition, screenWidth, 196)];
@@ -116,7 +128,7 @@
     [ingredientsView sizeToFit];
     [scrollView addSubview:ingredientsView];
 
-    // DONE - TODO find out the height of all elements and create the appropriate size of the scrollview
+    // TODO find out the height of all elements and create the appropriate size of the scrollview
     [scrollView setContentSize:CGSizeMake(screenWidth, calculatedYPosition)];
     [self.view addSubview:scrollView];
 
