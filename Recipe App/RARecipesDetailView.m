@@ -41,13 +41,13 @@
 
     // method needed to call image
     
-    UIImageView *foodImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 140)];
+    UIImageView *foodImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 180)];
     foodImage.image = [UIImage imageNamed:[RARecipes imageAtIndex:self.indexOfRecipe]];
 
     [scrollView addSubview:foodImage];
     //NSLog(@"Image name: %@",[RARecipes imageAtIndex:self.indexOfRecipe] );
 
-    startingYPosition += 140;
+    startingYPosition += 180;
 
     // recipe description
     UILabel *recipeDescription = [[UILabel alloc] initWithFrame:CGRectMake(startingXPosition, startingYPosition, screenWidth-10, elementHeight)];
