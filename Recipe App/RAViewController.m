@@ -26,6 +26,13 @@
     // Do any additional setup after loading the view.
 
     self.title = @"Favorite Recipes";
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(.9960) green:(.324) blue:(.0507) alpha:1];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],
+      NSForegroundColorAttributeName,[UIFont fontWithName:@"Helvetica-neue" size:0.0],
+      NSFontAttributeName,nil]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:self.tableView];
     self.tableView.delegate = self;
@@ -49,6 +56,10 @@
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
      
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
 }
 
 
