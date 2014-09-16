@@ -12,9 +12,15 @@
 @interface RARecipesDetailView ()
 
 
+
 @end
 
 @implementation RARecipesDetailView
+
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,30 +28,74 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = self.recipeTitle;
 
+    // get the width of the screen
+    CGFloat screenWidth = CGRectGetWidth(self.view.bounds);
+    CGFloat startingYPosition = 0;
+    CGFloat startingXPosition = 10;
+    CGFloat calculatedYPosition = 0;
+    CGFloat elementHeight = 100;
+    CGFloat labelHeight = 0;
+
     // create a scrollview
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 10, screenWidth, self.view.frame.size.height)];
 
-    UILabel *recipeDescription = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width-10, CGFLOAT_MAX)];
+    // recipe description
+    UILabel *recipeDescription = [[UILabel alloc] initWithFrame:CGRectMake(startingXPosition, startingYPosition, screenWidth-10, elementHeight)];
     recipeDescription.text = [RARecipes descriptionAtIndex:self.indexOfRecipe];
-
     recipeDescription.lineBreakMode = NSLineBreakByWordWrapping;
     recipeDescription.numberOfLines = 0;
     [recipeDescription sizeToFit];
 
-    // ingredients list array
-    UILabel *directionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 340, self.view.frame.size.width, 40)];
+    labelHeight = CGRectGetHeight(recipeDescription.bounds);
+    calculatedYPosition = labelHeight+10;
+
+    // create a UIView to attach the ingredients to
+    UIView *ingredientsView = [[UIView alloc] initWithFrame:CGRectMake(0, calculatedYPosition, screenWidth, 196)];
+
+    //set topPos for ingredients
+    int topPos = 40;
+
+    UILabel *ingredientsLabel = [[UILabel alloc] initWithFrame:CGRectMake(startingXPosition, 0, screenWidth, 40)];
+    ingredientsLabel.text = @"Ingredients";
+    ingredientsLabel.font = [UIFont boldSystemFontOfSize:18];
+
+    // loop through all ingredients in a recipe and output 2 labels side by side
+    for (int x = 0; x < [RARecipes count]; x++) {
+        // place your labels here
+        UILabel *ingredientAmount = [[UILabel alloc] initWithFrame:CGRectMake(startingXPosition, topPos, 70, 40)];
+        UILabel *ingredientName = [[UILabel alloc] initWithFrame:CGRectMake(100, topPos, 200, 40)];
+
+        // retrieve text from the datasource
+        ingredientAmount.text = [RARecipes ingredientVolumeAtIndex:x inRecipeAtIndex:self.indexOfRecipe];
+        ingredientName.text = [RARecipes ingredientTypeAtIndex:x inRecipeAtIndex:self.indexOfRecipe];
+
+        // increment topPos
+        topPos += 30;
+
+        // add to new view
+        [ingredientsView addSubview:ingredientAmount];
+        [ingredientsView addSubview:ingredientName];
+        [ingredientAmount sizeToFit];
+        [ingredientName sizeToFit];
+    }
+    [ingredientsView sizeToFit];
+
+    calculatedYPosition += 160;
+
+    // directions label
+    UILabel *directionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(startingXPosition, calculatedYPosition, screenWidth, elementHeight)];
     directionsLabel.text = @"Directions";
     directionsLabel.font = [UIFont boldSystemFontOfSize:18];
 
     // top of first direction
-    int topMargin = 380;
+    int topMargin = calculatedYPosition + 68;
     int sizeOfDescriptionText = 0;
 
     // list out all the directions for the recipe
     NSArray *directionsArray = [RARecipes directionsAtIndex:self.indexOfRecipe];
     for (int x = 0; x < directionsArray.count; x++) {
         //create labels for each direction
-        UILabel *directionText = [[UILabel alloc] initWithFrame:CGRectMake(10, (topMargin+sizeOfDescriptionText), self.view.frame.size.width, 80)];
+        UILabel *directionText = [[UILabel alloc] initWithFrame:CGRectMake(startingXPosition, (topMargin+sizeOfDescriptionText), screenWidth-20, elementHeight)];
         directionText.text = directionsArray[x];
 
         directionText.lineBreakMode = NSLineBreakByWordWrapping;
@@ -54,47 +104,20 @@
         sizeOfDescriptionText += directionText.frame.size.height;
         topMargin += 20;
         [scrollView addSubview:directionText];
+        calculatedYPosition =+ sizeOfDescriptionText+topMargin;
     }
 
-    //set topPos for ingredients
-    int topPos = 40;
-
-    // create a UIView to attach the ingredients to
-    UIView *ingredientsView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 1000)];
-    UILabel *ingredientsLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, self.view.frame.size.width, 20)];
-    ingredientsLabel.text = @"Ingredients";
-    ingredientsLabel.font = [UIFont boldSystemFontOfSize:18];
-
-
-    // loop through all ingredients in a recipe and output 2 labels side by side
-    for (int x = 0; x < [RARecipes count]; x++) {
-        // place your labels here
-        UILabel *ingredientAmount = [[UILabel alloc] initWithFrame:CGRectMake(10, topPos, 70, 20)];
-        UILabel *ingredientName = [[UILabel alloc] initWithFrame:CGRectMake(100, topPos, 200, 20)];
-
-        // retrieve text from the datasource
-        ingredientAmount.text = [RARecipes ingredientVolumeAtIndex:x inRecipeAtIndex:self.indexOfRecipe];
-        ingredientName.text = [RARecipes ingredientTypeAtIndex:x inRecipeAtIndex:self.indexOfRecipe];
-
-        // increment topPos
-        topPos += 40;
-
-        // add to new view
-        [ingredientsView addSubview:ingredientAmount];
-        [ingredientsView addSubview:ingredientName];
-    }
-
-
+    NSLog(@"Calculated Y position: %f",calculatedYPosition);
+    // add all views to the screen/scrollview
     [scrollView addSubview:directionsLabel];
-//    [scrollView addSubview:directions];
     [ingredientsView addSubview:ingredientsLabel];
     [scrollView addSubview:recipeDescription];
 
     [ingredientsView sizeToFit];
     [scrollView addSubview:ingredientsView];
 
-    // TODO find out the height of all elements and create the appropriate size of the scrollview
-    [scrollView setContentSize:CGSizeMake(self.view.frame.size.width, 2000)];
+    // DONE - TODO find out the height of all elements and create the appropriate size of the scrollview
+    [scrollView setContentSize:CGSizeMake(screenWidth, calculatedYPosition)];
     [self.view addSubview:scrollView];
 
 }
